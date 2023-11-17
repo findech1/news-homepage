@@ -132,8 +132,8 @@ header {
 }
 
 header section {
-  margin: 1.5em;
-  display:flex ;
+  margin: 1.5rem 0;
+  display: flex;
   flex-direction: column;
 }
 
@@ -141,7 +141,6 @@ header h1 {
   font-weight: 800;
   font-size: 40px;
   line-height: 40px;
-  display: inline-block;
 }
 
 header p {
@@ -150,7 +149,7 @@ header p {
   font-size: 15px;
   line-height: 26px;
   color: var(--dark-grayish-blue);
-  margin-top: 1rem 0.5rem 0;
+  margin: 1rem 0 1.5rem 0;
 }
 
 header a {
@@ -160,48 +159,183 @@ header a {
   padding: 1rem 2rem;
   font-weight: 700;
   font-size: 14px;
-  letter-spacing: 4px;
   line-height: 24px;
+  letter-spacing: 4.375px;
 }
-header a:hover{
-  transition: 0.5s fadein;
+
+header a:hover {
   background-color: var(--dark-blue);
+  transition: 0.5s all ease-in;
 }
 
 .new {
   background-color: var(--dark-blue);
   padding: 1.5rem;
-  margin: 4rem;
+  margin: 4rem 0;
 }
 
 .new h2 {
-color: var(--primary-orange);
-font-weight: 800;
-font-size: 24px;
-line-height: 24px;
-
+  color: var(--primary-orange);
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 24px;
 }
 
 .new article {
-  margin: 1.8rem;
+  margin: 1.85rem 0;
 }
 
 .new h3 {
   color: var(--off-white);
 }
+
 .new h3:hover {
   color: var(--primary-orange);
-  transition: 0.5s fadein;
+  transition: 0.5s all ease;
 }
 
 .new p {
+  font-weight: 400;
   font-size: 15px;
-  font-weight:400 ;
-  line-height: 24px;
+  line-height: 26px;
   color: var(--grayish-blue);
 }
 
 .new hr {
-  background-color: var(--grayish-blue);
-  height: 0.1rem;
+  border: none;
+  height: 0.125px;
+  background-color: var(--dark-grayish-blue);
+}
+
+.top {
+  display: grid;
+  gap: 2rem;
+  padding-bottom: 3rem;
+}
+
+.top article {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.top img {
+  width: 100px;
+}
+
+.top div {
+  display: grid;
+}
+
+.top h3 {
+  color: var(--grayish-blue);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 32px;
+}
+
+.top h4 {
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 24px;
+  margin: 12px 0 9px 0;
+}
+
+.top h4:hover {
+  color: var(--primary-red);
+  transition: 0.5s all ease-in;
+}
+
+.top p {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 26px;
+  color: var(--dark-grayish-blue);
+}
+
+@media (min-width: 768px) {
+  main {
+    display: grid;
+    grid-template-areas: "nav nav" "header new" "top top";
+    column-gap: 1.5rem;
+    row-gap: 3rem;
+  }
+
+  nav {
+    grid-area: nav;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .menu-btn {
+    display: none;
+  }
+
+  .nav-list {
+    position: static;
+    height: auto;
+    width: auto;
+    display: flex;
+  }
+
+  .nav-list ul {
+    flex-direction: row;
+    gap: 40px;
+    font-size: 15px;
+    line-height: 26px;
+    padding: 0;
+    width: auto;
+  }
+
+  .nav-list .menu-btn {
+    display: none;
+  }
+
+  header {
+    grid-area: header;
+    padding: 0;
+  }
+
+  header section {
+    margin-bottom: 0;
+  }
+
+  .new {
+    grid-area: new;
+    margin: 0;
+  }
+
+  .top {
+    grid-area: top;
+  }
+}
+
+@media (min-width: 992px) {
+  .top {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  main {
+    grid-template-columns: 1fr 350px;
+  }
+
+  nav {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  header section {
+    display: grid;
+    grid-template-columns: repeat(2, 350px);
+  }
+
+  header h1 {
+    font-size: 56px;
+    line-height: 56px;
+  }
+
+  header p {
+    margin-top: 0;
+  }
 }
